@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Manipulation</title>
+  <style>
+    .long-word {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <p id="paragraph"></p>
+
+  <script>
+    const paragraphText = `I am the third vehicle in the patrol so my cupola is always pointed right, 
+    the others cover their own arcs and together we create a lethal bubble, a pinprick of 
+    British-owned ground that roams back and forth across this continent as we please, or must. 
+    We’re currently heading north-east so if one were to fire an imaginary round it could in theory 
+    carry on to Niger, or Chad, or (curving slightly) even Kenya and the sea. I’ve spent a lot of time 
+    in Kenya – at Nanyuki or Archer’s Roast - and it’s so like here and so different I struggle to put 
+    into words exactly why.`;
+
+    function colorLongWords(text) {
+      const words = text.split(' ');
+      const coloredWords = words.map(word => {
+        // Remove punctuation from word to check length
+        const cleanWord = word.replace(/[.,-\/#!$%\^&\*;:{}=\-_`~()]/g, "");
+        return cleanWord.length > 5 
+          ? `<span class="long-word">${word}</span>` 
+          : word;
+      });
+      return coloredWords.join(' ');
+    }
+
+    // Render the paragraph with colored long words
+    document.getElementById("paragraph").innerHTML = colorLongWords(paragraphText);
+  </script>
+</body>
+</html>

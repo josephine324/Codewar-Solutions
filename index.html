@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Calculator</title>
+</head>
+<body>
+  <h1>Simple Calculator</h1>
+  <form id="calculatorForm">
+    <input type="number" id="num1" placeholder="Enter first number" required>
+    <input type="number" id="num2" placeholder="Enter second number" required>
+    <input type="text" id="operation" placeholder="Enter operation (+, -, *, /)" required>
+    <button type="submit">SUBMIT</button>
+  </form>
+  <p id="result"></p>
+
+  <script>
+    // Function to perform the calculation
+    function makeSum(event) {
+      event.preventDefault(); // Prevent form submission from refreshing the page
+
+      // Get the input values
+      const num1 = parseFloat(document.getElementById("num1").value);//.value helps get the value that was passed in that input
+      const num2 = parseFloat(document.getElementById("num2").value);
+      const operation = document.getElementById("operation").value;
+
+      // Initialize result
+      let result;
+
+      // Perform the calculation based on the operation
+      switch (operation) {
+        case "+":
+          result = num1 + num2;
+          break;
+        case "-":
+          result = num1 - num2;
+          break;
+        case "*":
+          result = num1 * num2;
+          break;
+        case "/":
+          result = num2 !== 0 ? num1 / num2 : "Error: Division by zero";
+          break;
+        default:
+          result = "Invalid operation! Please use +, -, *, or /.";
+      }
+
+      // Display the result
+      document.getElementById("result").textContent = `Result: ${result}`;
+    }
+
+    // Attach the event listener to the form
+    const calculatorForm = document.getElementById("calculatorForm");
+    calculatorForm.addEventListener("submit", makeSum);
+  </script>
+</body>
+</html>

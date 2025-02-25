@@ -1,0 +1,2 @@
+    /* first compare each digit eg [12,32,43],[23,12,11]
+    now the comparison is going to be like this 12 0R 23 and now you change each to binary and  eg [001],[1000] now you compare the bits and come up with one value and then you get the total of all bits and finally come up with a new array*/

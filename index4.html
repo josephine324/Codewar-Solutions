@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+<body>
+    <button id="clickButton">Click Me</button>
+    <div id="mesaage">Things will be output here </div>
+    <script>
+    let clickCount = 0;
+    const clickButton = document.getElementById("clickButton");
+    const message = document.getElementById("message");
+
+    clickButton.addEventListener("click", function() {
+      clickCount++;
+      message.textContent = `Click count: ${clickCount}`;
+      if (clickCount === 5) {
+        clickButton.disabled = true;
+        message.textContent = "Button disabled after 5 clicks.";
+      }
+      clearTimeout(resetTimer);
+      resetTimer = setTimeout(() => {
+        clickCount = 0;
+        clickButton.disabled = false;
+        message.textContent = "Counter reset after 10 seconds of inactivity.";
+      }, 10000);
+    });
+    </script>
+</body>
+</html>
