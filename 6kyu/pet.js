@@ -1,44 +1,4 @@
-class Pet {
-    constructor(name,age,energy_level){
-        this.name=name;
-        this.age=age;
-        this.energy_level=energy_level;
-    }
-    eat(){
-        `It eats alot`;
-    }
-    sleep(){
-        "it slept 3hours";
-    }
-    make_sound(){
-        "It makes the right sound"
-    }
-    class Dog extends Pet {
-        make_sound(){
-            "Dog barks";
-        }
-        fetch(){
 
-        }
-    }
-    class Cat extends Pet {
-        make_sound(){
-            "Cat meows";
-        }
-        climb(){
-
-        }
-    }
-    class Bird extends Pet {
-        make_sound(){
-            "Bird chirps"
-        }
-        fly(){
-
-        }
-    }
-}
-// the right answer
 class Pet {
     constructor(name, age, energy_level) {
         this.name = name;
